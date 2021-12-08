@@ -9,6 +9,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tbl_produto")
@@ -16,14 +19,15 @@ import javax.validation.constraints.NotNull;
 public class ProdutoModel {
 	
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long idProd;
-	private @NotBlank String tituloProd;
-	private @NotBlank String descricaoProd;
+	private @NotBlank @Size(max = 60) String tituloProd;
+	private @NotBlank @Size(max = 250) String descricaoProd;
 	private @NotNull double preco;
 	private @NotNull boolean estoque;
 	private @NotNull boolean receita;
 	
 	
 	@ManyToOne
+	@JsonIgnoreProperties("produto")
     @JoinColumn (name = "fk_categoria")
     private CategoriaModel categoria;
 	
