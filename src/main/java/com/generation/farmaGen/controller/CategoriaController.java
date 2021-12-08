@@ -1,6 +1,9 @@
 package com.generation.farmaGen.controller;
 
 import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,12 +47,12 @@ public class CategoriaController {
 	}
 
 	@PostMapping
-	public ResponseEntity<CategoriaModel> post (@RequestBody CategoriaModel categoria){
+	public ResponseEntity<CategoriaModel> post (@Valid @RequestBody CategoriaModel categoria){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(categoria));
 	}
 	
 	@PutMapping
-	public ResponseEntity<CategoriaModel> put (@RequestBody CategoriaModel categoria){
+	public ResponseEntity<CategoriaModel> put (@Valid @RequestBody CategoriaModel categoria){
 		return ResponseEntity.status (HttpStatus.OK).body(repository.save(categoria));
 	}
 	
