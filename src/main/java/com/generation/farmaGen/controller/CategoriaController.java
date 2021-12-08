@@ -1,5 +1,6 @@
 package com.generation.farmaGen.controller;
 
-public class CategoriaController {
 
+public class CategoriaController {
+	
 }
