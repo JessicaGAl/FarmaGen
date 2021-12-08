@@ -1,5 +1,6 @@
 package com.generation.farmaGen.controller;
 
+<<<<<<< HEAD
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,5 +76,9 @@ public class CategoriaController {
 }
 	
 public class CategoriaController {
+=======
+>>>>>>> 9afb938af01c2f8c93b22ed5c5422fa23f26e70a
 
+public class CategoriaController {
+	
 }
