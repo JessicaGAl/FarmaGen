@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -19,7 +21,13 @@ public class ProdutoModel {
 	private @NotNull double preco;
 	private @NotNull boolean estoque;
 	private @NotNull boolean receita;
-	private @NotNull Long fk_categoria;
+	
+	
+	@ManyToOne
+    @JoinColumn (name = "fk_categoria")
+    private CategoriaModel categoria;
+	
+	
 	public Long getIdProd() {
 		return idProd;
 	}
@@ -56,11 +64,12 @@ public class ProdutoModel {
 	public void setReceita(boolean receita) {
 		this.receita = receita;
 	}
-	public Long getFk_categoria() {
-		return fk_categoria;
+	public CategoriaModel getCategoria() {
+		return categoria;
 	}
-	public void setFk_categoria(Long fk_categoria) {
-		this.fk_categoria = fk_categoria;
+	public void setCategoria(CategoriaModel categoria) {
+		this.categoria = categoria;
 	}
+	
 
 }
